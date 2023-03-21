@@ -42,7 +42,7 @@ else
 
 
 // ALL TESTS SUCCESSFUL
-
+/**
 Console.Write("abba : ");
 Console.WriteLine(ch.check("abba"));
 
@@ -57,6 +57,7 @@ Console.WriteLine(ch.check("Stack Cats"));
 
 Console.Write("A man, a plan, a canal - Panama : ");
 Console.WriteLine(ch.check("A man, a plan, a canal – Panama"));
+**/
 
 
 public class Checker
