@@ -42,22 +42,22 @@ else
 
 
 // ALL TESTS SUCCESSFUL
-/**
-Console.Write("abba   -    is a palindrome: ");
+
+Console.Write("abba : ");
 Console.WriteLine(ch.check("abba"));
 
-Console.Write("12321   -   is a palindrome: ");
+Console.Write("12321 : ");
 Console.WriteLine(ch.check(12321));
 
-Console.Write("123.21   -   is a palindrome: ");
+Console.Write("123.21 : ");
 Console.WriteLine(ch.check(123.21));
 
-Console.Write("Stack Cats   -   is a palindrome: ");
+Console.Write("Stack Cats : ");
 Console.WriteLine(ch.check("Stack Cats"));
 
-Console.Write("A man, a plan, a canal - Panama   -   is a palindrome: ");
+Console.Write("A man, a plan, a canal - Panama : ");
 Console.WriteLine(ch.check("A man, a plan, a canal – Panama"));
-**/
+
 
 public class Checker
 {
@@ -78,7 +78,10 @@ public class Checker
 
         String reverseString = new string(strArray);
 
-        if (toCheckTrimmed.ToLower().Equals(reverseString.ToLower()))
+        toCheckTrimmed = toCheckTrimmed.ToLower();
+        reverseString = reverseString.ToLower();
+
+        if (toCheckTrimmed.Equals(reverseString))
         {
             Console.WriteLine(toCheckTrimmed + " is a palindrome.");
             return true;
