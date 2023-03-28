@@ -4,9 +4,7 @@ String toCheck = Console.ReadLine();
 
 Checker ch = new Checker();
 
-bool isInt = int.TryParse(toCheck, out int toCheckInt);
-
-if (isInt)
+if (int.TryParse(toCheck, out int toCheckInt))
 {
     if (ch.check(toCheckInt)) 
     {
@@ -43,6 +41,8 @@ else
 
 // ALL TESTS SUCCESSFUL
 /**
+Console.WriteLine();
+Console.WriteLine("Test input - all must be true: ");
 Console.Write("abba : ");
 Console.WriteLine(ch.check("abba"));
 
@@ -81,18 +81,16 @@ public class Checker
 
         toCheckTrimmed = toCheckTrimmed.ToLower();
         reverseString = reverseString.ToLower();
-
+        
         if (toCheckTrimmed.Equals(reverseString))
         {
-            Console.WriteLine(toCheckTrimmed + " is a palindrome.");
             return true;
         }
         else
         {
-            Console.WriteLine(toCheckTrimmed + " is not a palindrome.");
             return false;
         }
-
+        
     }
 
     public Boolean check(int i)
