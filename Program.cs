@@ -105,9 +105,6 @@ public static class Checker
 
     public static Boolean check(double d)
     {
-        string s = d.ToString();
-        s.Replace(",", "");
-        s.Replace(".", "");
-        return check(s);
+        return check(d.ToString());
     }
 }
