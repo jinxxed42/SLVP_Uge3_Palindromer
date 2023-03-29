@@ -1,12 +1,17 @@
 ﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Please input a string: ");
+Console.WriteLine("Please input a string to check if it's a palindrome: ");
 String toCheck = Console.ReadLine();
 
-Checker ch = new Checker();
+// Checking if anything has been input after removing blank spaces.
+if (toCheck.Replace(" ", "") == "")
+{
+    Console.WriteLine("You need to input something! Terminating program.");
+    return;
+}
 
 if (int.TryParse(toCheck, out int toCheckInt))
 {
-    if (ch.check(toCheckInt)) 
+    if (Checker.check(toCheckInt)) 
     {
         Console.WriteLine("It's a palindrome.");
     }
@@ -17,7 +22,7 @@ if (int.TryParse(toCheck, out int toCheckInt))
 }
 else if(double.TryParse(toCheck, out double toCheckDouble)) 
 { 
-    if (ch.check(toCheckDouble))
+    if (Checker.check(toCheckDouble))
     {
         Console.WriteLine("It's a palindrome.");
     }
@@ -28,7 +33,7 @@ else if(double.TryParse(toCheck, out double toCheckDouble))
 }
 else 
 { 
-    if (ch.check(toCheck))
+    if (Checker.check(toCheck))
     {
     Console.WriteLine("It's a palindrome.");
     }
@@ -44,25 +49,25 @@ else
 Console.WriteLine();
 Console.WriteLine("Test input - all must be true: ");
 Console.Write("abba : ");
-Console.WriteLine(ch.check("abba"));
+Console.WriteLine(Checker.check("abba"));
 
 Console.Write("12321 : ");
-Console.WriteLine(ch.check(12321));
+Console.WriteLine(Checker.check(12321));
 
 Console.Write("123.21 : ");
-Console.WriteLine(ch.check(123.21));
+Console.WriteLine(Checker.check(123.21));
 
 Console.Write("Stack Cats : ");
-Console.WriteLine(ch.check("Stack Cats"));
+Console.WriteLine(Checker.check("Stack Cats"));
 
 Console.Write("A man, a plan, a canal - Panama : ");
-Console.WriteLine(ch.check("A man, a plan, a canal – Panama"));
+Console.WriteLine(Checker.check("A man, a plan, a canal – Panama"));
 **/
 
 
-public class Checker
+public static class Checker
 {
-    public Boolean check(string s)
+    public static Boolean check(string s)
     {
         string[] ignoredChars = { " ", "_", "–", "—", "!", "\"", "#", "¤", "%", "&", "/", "(", ")", "=", "+", "`", "\\", ",", "." };
 
@@ -93,12 +98,12 @@ public class Checker
         
     }
 
-    public Boolean check(int i)
+    public static Boolean check(int i)
     {
         return check(i.ToString());
     }
 
-    public Boolean check(double d)
+    public static Boolean check(double d)
     {
         string s = d.ToString();
         s.Replace(",", "");
